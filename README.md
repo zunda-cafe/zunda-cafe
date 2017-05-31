@@ -9,6 +9,7 @@ zunda-cafeのissue/wiki用リポジトリ
   * Sphinxドキュメント生成用スクリプト
 * docs/
   * SphinxをビルドしたHTMLを公開用に配置するディレクトリ
+  * 暫定で手でビルドしたHTMLを配置
 
 ### 将来的な運用イメージ
 1. `develop`ブランチへドキュメント変更のPullRequestを送る
