@@ -31,7 +31,8 @@
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = []
+#extensions = []
+extensions = ['sphinx.ext.todo']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -75,7 +76,8 @@ exclude_patterns = []
 pygments_style = 'sphinx'
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
-todo_include_todos = False
+#todo_include_todos = False
+todo_include_todos = True
 
 
 # -- Options for HTML output ----------------------------------------------
@@ -83,7 +85,12 @@ todo_include_todos = False
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+#html_theme = 'alabaster'
+html_theme = 'sphinx_rtd_theme'
+#import sphinx_bootstrap_theme
+#html_theme = 'bootstrap'
+#html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
+#html_theme_options = {"bootswatch_theme": "united"}  # Bootswatch として united を使用
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -152,6 +159,3 @@ texinfo_documents = [
      author, 'zunda-cafe', 'One line description of project.',
      'Miscellaneous'),
 ]
-
-
-
