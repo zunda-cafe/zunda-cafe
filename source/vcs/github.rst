@@ -78,6 +78,8 @@ GitHub利用の流れ
       GitHub New repository 作成画面
 
 #. 完了画面が表示されます。
+   この画面で表示されている git remote add の箇所は後工程で使用しますので、
+   クリップボードまたは任意のテキストファイルにコピーしておいてください。
 
    .. figure:: images/GitHub_new_repo_完了.svg
       :width: 100%
@@ -86,10 +88,43 @@ GitHub利用の流れ
       GitHub New repository 完了画面
 
 
-
-
 マスターブランチにファイルを登録する（リーダ）
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+:doc:`git` で作成したsample-repoリポジトリをGitHubに登録します。
+
+git remote add コマンドで origin という名前でリモートリポジトリを参照できるように
+設定します。前節でコピーしておいた git remote add コマンドを実行してください。
+
+   .. code-block:: bash
+
+      $ git remote add origin https://github.com/naninuneter55/sample-repo.git
+
+次に git push コマンドで origin という名前で参照できるようにしたリモートリポジトリに
+masterブランチを登録します。
+
+.. code-block:: bash
+
+   $ git push -u origin master
+   Counting objects: 3, done.
+   Writing objects: 100% (3/3), 227 bytes | 0 bytes/s, done.
+   Total 3 (delta 0), reused 0 (delta 0)
+   To https://github.com/naninuneter55/sample-repo.git
+    * [new branch]      master -> master
+   Branch master set up to track remote branch master from origin.
+
+-uオプション（--set-upstreamと同意）を付けると、プッシュの処理と同時に該当するブランチの
+デフォルトリモートが変更されます。害にはならないのでgit pushには-uオプションを付けましょう。
+
+GitHubでリモートリポジトリを作成した画面をリロードしてみてください。
+ロカールリポジトリの内容がリモートリポジトリに反映されていることがわかります。
+
+.. figure:: images/GitHub_after_git_push.svg
+   :width: 100%
+   :align: center
+
+   GitHub git push 後の画面
+
 
 リモートリポジトリをクローンする（メンバー）
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -110,13 +145,13 @@ GitHub利用の流れ
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 レビューを実施し、プルリクを差戻す（リーダ）
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ファイルを修正し、コミット＆プッシュをする（メンバー）
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 レビューを実施し、プルリクを承認する（リーダ）
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ブランチをマスターブランチにマージする（リーダ）
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
