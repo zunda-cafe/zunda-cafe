@@ -129,17 +129,119 @@ GitHubでリモートリポジトリを作成した画面をリロードして�
 リモートリポジトリをクローンする（メンバー）
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+git cloneコマンドを利用して、リーダが作成したリモートリポジトリを
+メンバーのローカルリポジトリとして取得することができます。
+
+.. code-block:: bash
+
+   $ git clone <リモートリポジトリのURL>
+
+.. code-block:: bash
+
+   $ git clone https://github.com/naninuneter55/sample-repo.git
+   Cloning into 'sample-repo'...
+   remote: Counting objects: 3, done.
+   remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
+   Unpacking objects: 100% (3/3), done.
+
+
 ブランチを切る（メンバー）
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+git cloneコマンドで取得したローカルリポジトリは、masterブランチを利用しています。
+現在どのブランチを利用しているかはgit branchコマンドで確認できます。
+
+.. code-block:: bash
+
+   $ git branch
+   * master
+
+何か修正を加える場合はブランチ（枝）を作って、最後にリモートリポジトリ（GitHub）の
+masterブランチに合体するというやり方が安全かつ効率的です。
+
+git branchコマンドを利用してfeature-update-readmeというブランチを切り、
+git checkoutコマンドで作成したブランチへの切り替えを行いましょう。
+
+.. code-block:: bash
+
+   $ git branch feature-update-readme
+   $ git branch
+     feature-update-readme
+   * master
+   $ git checkout feature-update-readme
+   Switched to branch 'feature-update-readme'
+   $ git branch
+   * feature-update-readme
+     master
 
 ファイルを修正する（メンバー）
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+ロカールリポジトリのREADME.mdファイルを更新しましょう。
+
+.. code-block:: bash
+
+   $ echo 'update test' >> README.md
+   $ cat README.md
+   Hello Git!
+   update test
+
 ローカルリポジトリにコミットする（メンバー）
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+git addコマンドとgit commitコマンドを利用してローカルリポジトリにコミットします。
+
+.. code-block:: bash
+
+   $ git add .
+   $ git commit -m "update README.md"
+   [feature-update-readme 7a813d8] update README.md
+    1 file changed, 1 insertion(+)
+
 リモートリポジトリにプッシュする（メンバー）
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+git pushコマンドを利用して、ローカルリポジトリの内容をリモートリポジトリ（GitHub）に
+反映させます。
+
+.. code-block:: bash
+
+   $ git push -u origin <ブランチ名>
+
+.. code-block:: bash
+
+   $ git push -u origin feature-update-readme
+   Counting objects: 3, done.
+   Writing objects: 100% (3/3), 277 bytes | 0 bytes/s, done.
+   Total 3 (delta 0), reused 0 (delta 0)
+   To https://github.com/naninuneter55/sample-repo.git
+    * [new branch]      feature-update-readme -> feature-update-readme
+   Branch feature-update-readme set up to track remote branch feature-update-readme from origin.
+
+git cloneコマンドでロカールリポジトリを作成しているので、
+originにはリモートリポジトリの情報が設定されています。
+
+.. code-block:: bash
+
+   $ git remote -v
+   origin	https://github.com/naninuneter55/sample-repo.git (fetch)
+   origin	https://github.com/naninuneter55/sample-repo.git (push)
+
+feature-update-readmeブランチがリモートリポジトリ（GitHub）に登録されたかブラウザから
+確認してみましょう。
+
+.. figure:: images/GitHub_after_git_push_branch.svg
+   :width: 100%
+   :align: center
+
+   GitHub git push <ブランチ> 後の画面
+
+.. figure:: images/GitHub_update_README.svg
+   :width: 100%
+   :align: center
+
+   GitHub README修正確認
+
 
 プルリクを送信する（メンバー）
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
