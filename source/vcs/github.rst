@@ -61,7 +61,7 @@ GitHub利用の流れ
 
 #. GitHubのダッシュボード画面の右上「+」ボタンから「New repository」を選択します。
 
-   .. figure:: images/GitHub_new_repo_メニュー選択.svg
+   .. figure:: images/github_new_repo_menu_selection.svg
       :width: 100%
       :align: center
 
@@ -71,7 +71,7 @@ GitHub利用の流れ
    「Initialize this repository with a README」のチェックを外して、
    「Create Repository」ボタンをクリックします。
 
-   .. figure:: images/GitHub_new_repo_create.svg
+   .. figure:: images/github_new_repo_create.svg
       :width: 100%
       :align: center
 
@@ -81,7 +81,7 @@ GitHub利用の流れ
    この画面で表示されている git remote add の箇所は後工程で使用しますので、
    クリップボードまたは任意のテキストファイルにコピーしておいてください。
 
-   .. figure:: images/GitHub_new_repo_完了.svg
+   .. figure:: images/github_new_repo_complete.svg
       :width: 100%
       :align: center
 
@@ -119,7 +119,7 @@ masterブランチを登録します。
 GitHubでリモートリポジトリを作成した画面をリロードしてみてください。
 ロカールリポジトリの内容がリモートリポジトリに反映されていることがわかります。
 
-.. figure:: images/GitHub_after_git_push.svg
+.. figure:: images/github_after_git_push.svg
    :width: 100%
    :align: center
 
@@ -230,13 +230,13 @@ originにはリモートリポジトリの情報が設定されています。
 feature-update-readmeブランチがリモートリポジトリ（GitHub）に登録されたかブラウザから
 確認してみましょう。
 
-.. figure:: images/GitHub_after_git_push_branch.svg
+.. figure:: images/github_after_git_push_branch.svg
    :width: 100%
    :align: center
 
    GitHub git push <ブランチ> 後の画面
 
-.. figure:: images/GitHub_update_README.svg
+.. figure:: images/github_update_readme.svg
    :width: 100%
    :align: center
 

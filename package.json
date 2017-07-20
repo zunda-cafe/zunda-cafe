@@ -1,0 +1,14 @@
+{
+  "name": "zunda-cafe",
+  "version": "0.0.1",
+  "description": "zunda-cafe",
+  "main": "gulpfile.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {
+    "gulp": "3.8.0",
+    "gulp-shell": "0.5.0",
+    "gulp-webserver": "0.8.0"
+  }
+}
